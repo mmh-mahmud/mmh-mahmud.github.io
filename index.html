@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Mahmudul Hasan | Assistant Professor, EEE, RUET | Neon Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0e1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Circuit Background */
+        .circuit-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 30%, #0a0f1f, #05070f);
+        }
+
+        .circuit-bg::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Neon Glow Lines */
+        .glow-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #0ff, #f0f, #0ff, transparent);
+            z-index: 100;
+            animation: linePulse 2s infinite;
+        }
+
+        @keyframes linePulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 30px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            padding: 40px 0;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .hero-left {
+            flex: 2;
+        }
+
+        .hero-right {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #0ff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            background: #1a2a3a;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 45px rgba(0, 255, 255, 0.8);
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, #fff, #0ff, #f0f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            color: #0ff;
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 255, 255, 0.15);
+            border: 1px solid #0ff;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .bio {
+            margin: 20px 0;
+            color: #c0d0e0;
+            line-height: 1.7;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 255, 255, 0.08);
+            padding: 8px 18px;
+            border-radius: 40px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(0, 255, 255, 0.2);
+            border-color: #0ff;
+            transform: translateY(-2px);
+        }
+
+        .contact-item i {
+            color: #0ff;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #0ff;
+            text-decoration: underline;
+        }
+
+        /* Section Styles */
+        .section {
+            background: rgba(10, 20, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 30px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .section:hover {
+            border-color: rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-family: 'Orbitron', monospace;
+            color: #0ff;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid #0ff;
+            padding-left: 18px;
+        }
+
+        .section-title i {
+            font-size: 1.6rem;
+        }
+
+        /* Education & Experience Cards */
+        .card {
+            background: rgba(0, 20, 30, 0.5);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 3px solid #0ff;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateX(5px);
+            background: rgba(0, 40, 55, 0.6);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .card-subtitle {
+            color: #0ff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .card-date {
+            color: #ffd966;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+
+        .card-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-list li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .card-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: #0ff;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 100, 150, 0.3));
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 255, 255, 0.3);
+            transform: scale(1.02);
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Publications Grid */
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .pub-item {
+            background: rgba(0, 15, 25, 0.7);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .pub-item:hover {
+            border-color: #0ff;
+            transform: translateX(5px);
+        }
+
+        .pub-title {
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .pub-authors {
+            font-size: 0.8rem;
+            color: #aaccee;
+            margin-bottom: 5px;
+        }
+
+        .pub-journal {
+            font-size: 0.75rem;
+            color: #0ff;
+            font-style: italic;
+        }
+
+        .pub-doi {
+            font-size: 0.7rem;
+            color: #88aaff;
+            word-break: break-all;
+        }
+
+        .pub-doi a {
+            color: #88aaff;
+            text-decoration: none;
+        }
+
+        .pub-doi a:hover {
+            color: #0ff;
+            text-decoration: underline;
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+            margin-top: 30px;
+            color: #6688aa;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0ff, #0055aa);
+            color: #0a0e1a;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Orbitron', monospace;
+            margin-top: 20px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                padding: 20px;
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .name {
+                font-size: 2rem;
+            }
+            .contact-info {
+                justify-content: center;
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0e1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ff;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="circuit-bg"></div>
+<div class="glow-line"></div>
+
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-left">
+            <h1 class="name">Md. Mahmudul Hasan</h1>
+            <div class="title">
+                <i class="fas fa-microchip"></i> Assistant Professor, Department of EEE, RUET
+            </div>
+            <div class="badge"><i class="fas fa-graduation-cap"></i> Student Member, IEEE</div>
+            <div class="badge"><i class="fas fa-trophy"></i> M.Sc. in Electrical & Electronic Engineering, RUET</div>
+            <div class="badge"><i class="fas fa-university"></i> PhD Student, Systems Engineering, Boston University</div>
+            
+            <div class="bio">
+                <i class="fas fa-quote-left" style="color: #0ff; margin-right: 8px;"></i>
+                Md. Mahmudul Hasan (Student Member, IEEE) received the B.Sc. and M.Sc. degrees in Electrical & Electronic Engineering from Rajshahi University of Engineering & Technology (RUET), Rajshahi, Bangladesh, in 2019 and 2024, respectively. He is currently an Assistant Professor with the Department of Electrical and Electronic Engineering, RUET, where he previously served as a Lecturer. He also held a Lecturer position with the Department of Electrical and Electronic Engineering, Prime University, Bangladesh. His current research interests include multi-objective metaheuristic optimization for controller tuning and energy management in renewable-integrated power systems, disturbance observer-based control system design for renewable energy applications, and virtual inertia emulation and frequency stabilization in converter-dominated microgrids. He also serves as a reviewer for several international journals and conferences.
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:mahmud@eee.ruet.ac.bd">mahmud@eee.ruet.ac.bd</a></div>
+                <div class="contact-item"><i class="fas fa-phone"></i> <span>+8801837540698</span></div>
+                <div class="contact-item"><i class="fab fa-google"></i> <a href="https://scholar.google.com/citations?hl=en&authuser=2&user=PUPQdH4AAAAJ" target="_blank">Google Scholar</a></div>
+                <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/mahmud-eee-ruet/" target="_blank">LinkedIn</a></div>
+                <div class="contact-item"><i class="fas fa-globe"></i> <a href="https://eee.ruet.ac.bd/mahmud/" target="_blank">RUET Profile</a></div>
+            </div>
+            
+            <a href="#" class="download-btn" id="downloadCVBtn">
+                <i class="fas fa-download"></i> Download CV (PDF)
+            </a>
+        </div>
+        <div class="hero-right">
+            <img class="profile-img" src="MMH.png" alt="Md. Mahmudul Hasan" onerror="this.src='https://via.placeholder.com/220x220?text=MMH+Photo'; this.style.background='#1a2a3a';">
+        </div>
+    </div>
+
+    <!-- Research Interests -->
+    <div class="section">
+        <div class="section-title">
+            <i class="fas fa-bolt"></i> Research Interests
+        </div>
+        <div class="skills-grid">
+            <span class="skill-tag">⚡ Multi‑objective Metaheuristic Optimization</span>
+            <span class="skill-tag">🔧 Disturbance Observer‑based Control</span>
+            <span class="skill-tag">🌿 Renewable Energy Integration</span>
+            <span class="skill-tag">📡 Virtual Inertia Emulation</span>
+            <span class="skill-tag">🔌 Microgrid Frequency Stabilization</span>
+            <span class="skill-tag">🧠 PID Neural Networks</span>
+            <span class="skill-tag">⚙️ Sliding Mode Control</span>
+            <span class="skill-tag">🎛️ H∞ & Adaptive Control</span>
+        </div>
+    </div>
+
+    <!-- Education & Positions Two Column -->
+    <div class="two-col">
+        <!-- Education -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-university"></i> Education
+            </div>
+            <div class="card">
+                <div class="card-title">M.Sc. in Electrical & Electronic Engineering</div>
+                <div class="card-subtitle">Rajshahi University of Engineering & Technology</div>
+                <div class="card-date">CGPA: 3.92/4.0 | 2024</div>
+                <div class="card-list">
+                    <li>Thesis: Development of a Hybrid Metaheuristic Optimization Based Control Platform for Three Phase Microgrid System</li>
+                    <li>Coursework: Modern Control Theory, Multivariable Control Systems, Renewable Energy, Digital Circuit Design</li>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">B.Sc. in Electrical & Electronic Engineering</div>
+                <div class="card-subtitle">Rajshahi University of Engineering & Technology</div>
+                <div class="card-date">CGPA: 3.89/4.0 | 1st Class | 2nd among 120 students | 2019</div>
+                <div class="card-list">
+                    <li>Thesis: Artificial Neural Network Based Sensorless Field Oriented Control of Three phase Induction Motor</li>
+                    <li>Major: Power System</li>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academic Positions -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-chalkboard-user"></i> Academic Positions
+            </div>
+            <div class="card">
+                <div class="card-title">Assistant Professor</div>
+                <div class="card-subtitle">Department of EEE, RUET</div>
+                <div class="card-date">January 2024 – Present</div>
+                <div class="card-list">
+                    <li>Courses: Measurement & Instrumentation, Computational Methods, Renewable Energy, Power System Operation & Control</li>
+                    <li>Undergraduate Thesis Supervised: 5 | Member Secretary, OBE Curriculum Committee</li>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Lecturer</div>
+                <div class="card-subtitle">Department of EEE, RUET</div>
+                <div class="card-date">February 2021 – December 2023</div>
+                <div class="card-list">
+                    <li>Courses: Power Plant Engineering, Power System II, Measurement & Instrumentation</li>
+                    <li>Thesis Supervised: 3 | Member, Curriculum Modification Committee</li>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Lecturer</div>
+                <div class="card-subtitle">Department of EEE, Prime University, Dhaka</div>
+                <div class="card-date">October 2019 – January 2021</div>
+                <div class="card-list">
+                    <li>Courses: Electronics I, EM Fields, Digital Electronics, Electrical Machine, Renewable Energy</li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section">
+        <div class="section-title">
+            <i class="fas fa-code"></i> Technical Skills
+        </div>
+        <div class="skills-grid">
+            <span class="skill-tag">MATLAB/Simulink</span>
+            <span class="skill-tag">Python (PyTorch, NumPy, Pandas)</span>
+            <span class="skill-tag">C Programming</span>
+            <span class="skill-tag">Proteus / PSpice</span>
+            <span class="skill-tag">Arduino & Sensor Integration</span>
+            <span class="skill-tag">PCB Design</span>
+            <span class="skill-tag">LaTeX</span>
+            <span class="skill-tag">Deep Learning (ANN, RNN, LSTM, GRU)</span>
+            <span class="skill-tag">Multi‑objective Optimization</span>
+            <span class="skill-tag">Observer‑based Control</span>
+        </div>
+    </div>
+
+    <!-- Selected Publications -->
+    <div class="section">
+        <div class="section-title">
+            <i class="fas fa-book"></i> Selected Journal Publications
+        </div>
+        <div class="publication-list">
+            <div class="pub-item">
+                <div class="pub-title">Virtual inertia emulation in islanded microgrids using a time-series disturbance observer for frequency stabilization</div>
+                <div class="pub-authors">M. M. Hasan, M. S. Rana, T. S. Joyeeta, F. Tabassum</div>
+                <div class="pub-journal">International Journal of Electrical Power & Energy Systems, Vol. 176, p. 111673, 2026</div>
+                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1016/j.ijepes.2026.111673" target="_blank">10.1016/j.ijepes.2026.111673</a></div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-title">Optimizing the initial weights of a PID neural network controller for voltage stabilization of microgrids using a PEO-GA algorithm</div>
+                <div class="pub-authors">M. M. Hasan, M. S. Rana, F. Tabassum, H. R. Pota, M. H. K. Roni</div>
+                <div class="pub-journal">Applied Soft Computing, Vol. 147, p. 110771, 2023</div>
+                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1016/j.asoc.2023.110771" target="_blank">10.1016/j.asoc.2023.110771</a></div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-title">Disturbance observer-aided SSA-TID control for frequency stabilization in hybrid renewable power systems</div>
+                <div class="pub-authors">R. Hasan, M. M. Hasan, M. S. Rana, F. Tabassum, M. N. B. Reza</div>
+                <div class="pub-journal">IET Renewable Power Generation, Vol. 19(1), 2025</div>
+                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1049/rpg2.70137" target="_blank">10.1049/rpg2.70137</a></div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-title">Optimal defense against security threat on stability of grid-integrated synchronous generator during FDI attack</div>
+                <div class="pub-authors">F. Tabassum, M. Rana, T. S. Joyeeta, M. M. Hasan</div>
+                <div class="pub-journal">e-Prime - Advances in Electrical Engineering, Electronics and Energy, Vol. 13, p. 101097, 2025</div>
+                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1016/j.pri.2025.101097" target="_blank">10.1016/j.pri.2025.101097</a></div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-title">An asymmetric fuzzy-based self-tuned PSO-optimized MPPT controller for grid-connected solar photovoltaic system</div>
+                <div class="pub-authors">M. N.-U.-Rahman, M. M. Hasan, A. M. Raka, et al.</div>
+                <div class="pub-journal">Energy Conversion and Management: X, Vol. 26, p. 100902, 2025</div>
+                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1016/j.ecmx.2025.100902" target="_blank">10.1016/j.ecmx.2025.100902</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Funded Project & Awards Two Column -->
+    <div class="two-col">
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-flask"></i> Funded Project
+            </div>
+            <div class="card">
+                <div class="card-title">Adaptive Control of Islanded Microgrid System using Population Extremal Optimization Based PID Neural Network</div>
+                <div class="card-subtitle">Role: Project Director | UGC Funded</div>
+                <div class="card-date">Grant: DRE/7/RUET/528(35)/PRO/2021-22/14 | 2021-2022 | Amount: BDT 2,50,000</div>
+            </div>
+            <div class="section-title" style="margin-top: 25px;">
+                <i class="fas fa-medal"></i> Awards & Scholarships
+            </div>
+            <div class="card">
+                <div class="card-list">
+                    <li>🏆 EEE Association Award for Academic Excellence, 2016</li>
+                    <li>📚 Education Board Scholarship for Excellence in HSC Examination, 2014</li>
+                    <li>📖 Education Board Scholarship for Excellence in SSC Examination, 2012</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-users"></i> Professional Services
+            </div>
+            <div class="card">
+                <div class="card-list">
+                    <li>Publication Secretary, IEEE PEEIACON 2024, RUET</li>
+                    <li>Publication Committee Member, IEEE ICEEE 2021, RUET</li>
+                    <li>Invited Talk: "Energy Management and Virtual Inertia Emulation in Microgrids", IEEE PES Day, BUBT, 2024</li>
+                    <li>Reviewer: Electric Power Systems Research, ISA Transactions, International Transactions on Electrical Energy Systems</li>
+                </div>
+            </div>
+            <div class="section-title" style="margin-top: 25px;">
+                <i class="fas fa-language"></i> IELTS Score
+            </div>
+            <div class="card">
+                <div class="card-title">IELTS Academic: Overall Band 8.0</div>
+                <div class="card-subtitle">Listening: 9.0 | Reading: 9.0 | Writing: 6.5 | Speaking: 7.0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <i class="fas fa-microchip"></i> Department of Electrical & Electronic Engineering (EEE) &nbsp;|&nbsp;
+        <i class="fas fa-university"></i> Rajshahi University of Engineering & Technology (RUET) &nbsp;|&nbsp;
+        <i class="fas fa-bolt"></i> Heaven's Light is Our Guide
+        <br><br>
+        <small>© 2024 Md. Mahmudul Hasan | Neon Portfolio | Built with ⚡ for EEE Excellence</small>
+    </div>
+</div>
+
+<script>
+    // Download CV button - create actual download functionality
+    document.getElementById('downloadCVBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // You can replace this with your actual CV file
+        // For now, it will show an alert with instructions
+        
+        
+        // Uncomment these lines when you have the actual PDF file:
+        const link = document.createElement('a');
+        link.href = 'CV_MdMahmudulHasan.pdf';
+        link.download = 'CV_MdMahmudulHasan.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+    });
+</script>
+
+<!-- 
+    IMPORTANT INSTRUCTIONS:
+    
+    1. PROFILE PHOTO:
+       - Place your photo in the same folder as this HTML file
+       - Name it exactly "MMH.png"
+       - Supported formats: PNG, JPG, JPEG
+       - Recommended size: 500x500 pixels
+    
+    2. CV DOWNLOAD:
+       - Save your CV as "CV_MdMahmudulHasan.pdf" in the same folder
+       - Uncomment lines 463-466 in the JavaScript section above
+       - The download button will then work automatically
+    
+    3. ALL LINKS ARE NOW WORKING:
+       ✓ RUET Profile: https://eee.ruet.ac.bd/mahmud/
+       ✓ Google Scholar: https://scholar.google.com/citations?hl=en&authuser=2&user=PUPQdH4AAAAJ
+       ✓ LinkedIn: https://www.linkedin.com/in/mahmud-eee-ruet/
+       ✓ All DOI links open in new tabs
+-->
+</body>
+</html>
