@@ -1,704 +1,638 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Mahmudul Hasan | Assistant Professor, EEE, RUET | Neon Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Md. Mahmudul Hasan | PhD Student, Boston University · Assistant Professor (On Leave), RUET</title>
+<meta name="description" content="Md. Mahmudul Hasan — PhD student in Systems Engineering at Boston University and Assistant Professor (on leave) of EEE at RUET. Research on metaheuristic optimization, disturbance-observer-based control, and virtual inertia for renewable-integrated microgrids.">
+<meta name="author" content="Md. Mahmudul Hasan">
+<meta property="og:title" content="Md. Mahmudul Hasan — Academic Portfolio">
+<meta property="og:description" content="PhD Student, Systems Engineering, Boston University · Assistant Professor (On Leave), EEE, RUET. Control & optimization for renewable-integrated power systems.">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231d4e89'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'>MH</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Md. Mahmudul Hasan","jobTitle":"PhD Student; Assistant Professor (On Leave)","email":"mailto:mmhasan@bu.edu","telephone":"+1-617-516-9248","affiliation":[{"@type":"CollegeOrUniversity","name":"Boston University"},{"@type":"CollegeOrUniversity","name":"Rajshahi University of Engineering & Technology"}],"alumniOf":"Rajshahi University of Engineering & Technology","url":"https://eee.ruet.ac.bd/mahmud/","sameAs":["https://scholar.google.com/citations?user=PUPQdH4AAAAJ","https://linkedin.com/in/mahmud-eee-ruet"],"knowsAbout":["Metaheuristic optimization","Disturbance observer-based control","Virtual inertia emulation","Microgrids","Renewable energy systems"]}
+</script>
+<style>
+:root{
+  --bg:#f7f6f2; --surface:#ffffff; --surface-2:#f0eee7; --text:#1d2330; --muted:#5b6474;
+  --line:#e2dfd5; --accent:#1d4e89; --accent-2:#b5651d; --accent-soft:#e6eef8; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11151c; --surface:#171c25; --surface-2:#1d2330; --text:#e6e9ef; --muted:#9aa4b5;
+    --line:#2a3240; --accent:#7fb0ec; --accent-2:#e8a25c; --accent-soft:#1c2a3d; --chip:#222a37;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11151c; --surface:#171c25; --surface-2:#1d2330; --text:#e6e9ef; --muted:#9aa4b5;
+  --line:#2a3240; --accent:#7fb0ec; --accent-2:#e8a25c; --accent-soft:#1c2a3d; --chip:#222a37;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;line-height:1.25;margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0e1a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+/* Nav */
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.brand{font-family:"Source Serif 4",serif;font-weight:700;font-size:1.1rem;color:var(--text);white-space:nowrap}
+.brand:hover{text-decoration:none}
+.nav ul{display:flex;gap:2px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{display:block;padding:6px 11px;border-radius:8px;color:var(--muted);font-size:.9rem;font-weight:500}
+.nav ul a:hover,.nav ul a.active{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:8px;width:36px;height:36px;display:grid;place-items:center;cursor:pointer;flex:none}
+.menu-btn{display:none}
 
-        /* Animated Circuit Background */
-        .circuit-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: radial-gradient(circle at 20% 30%, #0a0f1f, #05070f);
-        }
+/* Layout */
+.layout{display:grid;grid-template-columns:300px 1fr;gap:40px;padding:40px 0 64px}
+aside.profile{align-self:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.profile .card{padding:26px 24px;text-align:center}
+.avatar{width:168px;height:168px;border-radius:50%;object-fit:cover;border:4px solid var(--surface);box-shadow:0 0 0 2px var(--accent),var(--shadow);margin-bottom:16px}
+.profile h1{font-size:1.5rem}
+.role{color:var(--muted);font-size:.92rem;margin:6px 0 2px}
+.affil{font-size:.92rem;font-weight:500}
+.contact{list-style:none;padding:16px 0 0;margin:18px 0 0;border-top:1px solid var(--line);text-align:left;font-size:.88rem}
+.contact li{display:flex;gap:10px;align-items:flex-start;padding:5px 0;word-break:break-word}
+.contact svg{flex:none;width:16px;height:16px;margin-top:4px;color:var(--accent)}
+.btns{display:flex;gap:8px;margin-top:16px}
+.btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;border-radius:10px;font-size:.86rem;font-weight:600;border:1px solid var(--accent);color:var(--accent);background:transparent}
+.btn.primary{background:var(--accent);color:var(--surface)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
 
-        .circuit-bg::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
-        }
+/* Sections */
+main section{margin-bottom:48px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid var(--line);position:relative}
+.sec-head::after{content:"";position:absolute;left:0;bottom:-2px;width:56px;height:2px;background:var(--accent-2)}
+.sec-head h2{font-size:1.65rem}
+.sec-head .count{color:var(--muted);font-size:.85rem}
+h3.sub{font-size:1.15rem;margin:26px 0 12px;color:var(--text)}
+.lead{font-size:1.04rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.stat{padding:16px;text-align:center}
+.stat b{display:block;font-family:"Source Serif 4",serif;font-size:1.9rem;color:var(--accent);line-height:1.1}
+.stat span{font-size:.8rem;color:var(--muted)}
+.interests{display:grid;gap:12px}
+.interest{display:flex;gap:14px;padding:16px 18px;align-items:flex-start}
+.interest .num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-family:"Source Serif 4",serif}
+.news{padding:6px 20px}
+.news li{padding:10px 0;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:96px 1fr;gap:12px;font-size:.94rem}
+.news li:last-child{border:0}
+.news time{color:var(--accent-2);font-weight:600;font-size:.84rem;padding-top:2px}
+ul.clean{list-style:none;margin:0;padding:0}
 
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
+/* Publications */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.filter{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:6px 14px;border-radius:999px;font:500 .86rem Inter,sans-serif;cursor:pointer}
+.filter.on{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.search{margin-left:auto;flex:1;min-width:180px;max-width:280px;border:1px solid var(--line);background:var(--surface);color:var(--text);padding:7px 14px;border-radius:999px;font:inherit;font-size:.88rem}
+.pub-group h3{font-size:1.1rem;margin:22px 0 10px;color:var(--muted);font-family:Inter,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.8rem}
+.pub{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 18px;margin-bottom:10px;transition:border-color .15s,transform .15s}
+.pub:hover{border-color:var(--accent);transform:translateY(-1px)}
+.pub .idx{font-family:"Source Serif 4",serif;font-weight:700;color:var(--accent-2);font-size:1rem;padding-top:1px}
+.pub .title{font-family:"Source Serif 4",serif;font-size:1.08rem;font-weight:600;color:var(--text);line-height:1.4}
+.pub a.title:hover{color:var(--accent)}
+.pub .authors{font-size:.9rem;color:var(--muted);margin:4px 0 2px}
+.pub .authors b{color:var(--text);font-weight:600;text-decoration:underline;text-decoration-color:var(--accent-2);text-underline-offset:3px}
+.pub .venue{font-size:.9rem;font-style:italic}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.tag{font-size:.74rem;font-weight:600;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.tag.type-j{background:var(--accent-soft);color:var(--accent)}
+.tag.type-c{background:color-mix(in srgb,var(--accent-2) 16%,transparent);color:var(--accent-2)}
+.tag.link{color:var(--accent);border:1px solid var(--line);background:transparent}
+.tag.link:hover{border-color:var(--accent);text-decoration:none}
+.tag.cite{cursor:pointer;border:1px solid var(--line);background:transparent;font-family:inherit}
+.empty{display:none;color:var(--muted);padding:12px 0}
 
-        /* Neon Glow Lines */
-        .glow-line {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #0ff, #f0f, #0ff, transparent);
-            z-index: 100;
-            animation: linePulse 2s infinite;
-        }
+/* Timeline */
+.timeline{position:relative;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.t-item{position:relative;padding:18px 20px;margin-bottom:14px}
+.t-item::before{content:"";position:absolute;left:-25px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--accent)}
+.t-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.t-item h3{font-size:1.12rem}
+.t-date{font-size:.82rem;font-weight:600;color:var(--accent-2);white-space:nowrap}
+.t-org{color:var(--muted);font-size:.92rem;margin:2px 0 8px}
+.t-item ul{margin:6px 0 0;padding-left:18px;font-size:.93rem}
+.t-item li{margin:3px 0}
+.pill{display:inline-block;font-size:.78rem;font-weight:600;background:var(--accent-soft);color:var(--accent);padding:2px 10px;border-radius:999px;margin-right:6px}
 
-        @keyframes linePulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
+/* Grids */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.box{padding:18px 20px}
+.box h3{font-size:1.05rem;margin-bottom:8px}
+.box p{margin:4px 0;font-size:.93rem}
+.kv{display:grid;grid-template-columns:128px 1fr;gap:4px 12px;font-size:.92rem}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0}
+.thesis{padding:4px 20px}
+.thesis li{padding:12px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:60px 1fr;gap:10px;font-size:.93rem}
+.thesis li:last-child{border:0}
+.thesis .yr{font-weight:700;color:var(--accent-2)}
+.thesis .st{display:block;color:var(--muted);font-size:.86rem}
+.skills .box{display:grid;grid-template-columns:170px 1fr;gap:12px;align-items:start;border-bottom:1px solid var(--line);padding:14px 20px}
+.skills .box:last-child{border:0}
+.skills .lbl{font-weight:600;font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:.82rem;padding:3px 10px;border-radius:999px;background:var(--chip)}
+.svc li{padding:10px 0 10px 22px;position:relative;border-bottom:1px solid var(--line);font-size:.94rem}
+.svc li:last-child{border:0}
+.svc li::before{content:"";position:absolute;left:4px;top:19px;width:7px;height:7px;border-radius:2px;background:var(--accent-2);transform:rotate(45deg)}
+.ielts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.ielts div{flex:1;min-width:70px;text-align:center;padding:8px;border-radius:10px;background:var(--surface-2)}
+.ielts b{display:block;font-family:"Source Serif 4",serif;font-size:1.3rem;color:var(--accent)}
+.ielts span{font-size:.74rem;color:var(--muted)}
 
-        /* Container */
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 30px 40px;
-            position: relative;
-            z-index: 1;
-        }
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-        /* Header / Hero Section */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 60px;
-            padding: 40px 0;
-            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
-        }
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:9px 18px;border-radius:10px;font-size:.86rem;opacity:0;transition:.25s;pointer-events:none;z-index:100}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-        .hero-left {
-            flex: 2;
-        }
-
-        .hero-right {
-            flex: 1;
-            text-align: center;
-        }
-
-        .profile-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #0ff;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-            transition: all 0.3s ease;
-            background: #1a2a3a;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 45px rgba(0, 255, 255, 0.8);
-        }
-
-        .name {
-            font-size: 3rem;
-            font-weight: 800;
-            font-family: 'Orbitron', monospace;
-            background: linear-gradient(135deg, #fff, #0ff, #f0f);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .title {
-            font-size: 1.3rem;
-            color: #0ff;
-            font-family: 'Orbitron', monospace;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(0, 255, 255, 0.15);
-            border: 1px solid #0ff;
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-
-        .bio {
-            margin: 20px 0;
-            color: #c0d0e0;
-            line-height: 1.7;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(0, 255, 255, 0.08);
-            padding: 8px 18px;
-            border-radius: 40px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover {
-            background: rgba(0, 255, 255, 0.2);
-            border-color: #0ff;
-            transform: translateY(-2px);
-        }
-
-        .contact-item i {
-            color: #0ff;
-            font-size: 1.1rem;
-        }
-
-        .contact-item a {
-            color: #e0e0e0;
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            color: #0ff;
-            text-decoration: underline;
-        }
-
-        /* Section Styles */
-        .section {
-            background: rgba(10, 20, 30, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 30px;
-            margin-bottom: 35px;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            transition: all 0.3s;
-        }
-
-        .section:hover {
-            border-color: rgba(0, 255, 255, 0.5);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-family: 'Orbitron', monospace;
-            color: #0ff;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-left: 4px solid #0ff;
-            padding-left: 18px;
-        }
-
-        .section-title i {
-            font-size: 1.6rem;
-        }
-
-        /* Education & Experience Cards */
-        .card {
-            background: rgba(0, 20, 30, 0.5);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 3px solid #0ff;
-            transition: all 0.3s;
-        }
-
-        .card:hover {
-            transform: translateX(5px);
-            background: rgba(0, 40, 55, 0.6);
-        }
-
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .card-subtitle {
-            color: #0ff;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            font-family: 'Orbitron', monospace;
-        }
-
-        .card-date {
-            color: #ffd966;
-            font-size: 0.8rem;
-            margin-bottom: 12px;
-        }
-
-        .card-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .card-list li {
-            padding: 5px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .card-list li::before {
-            content: '⚡';
-            position: absolute;
-            left: 0;
-            color: #0ff;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 100, 150, 0.3));
-            border: 1px solid rgba(0, 255, 255, 0.4);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: rgba(0, 255, 255, 0.3);
-            transform: scale(1.02);
-            box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
-        }
-
-        /* Publications Grid */
-        .publication-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .pub-item {
-            background: rgba(0, 15, 25, 0.7);
-            border-radius: 15px;
-            padding: 15px;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            transition: all 0.3s;
-        }
-
-        .pub-item:hover {
-            border-color: #0ff;
-            transform: translateX(5px);
-        }
-
-        .pub-title {
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .pub-authors {
-            font-size: 0.8rem;
-            color: #aaccee;
-            margin-bottom: 5px;
-        }
-
-        .pub-journal {
-            font-size: 0.75rem;
-            color: #0ff;
-            font-style: italic;
-        }
-
-        .pub-doi {
-            font-size: 0.7rem;
-            color: #88aaff;
-            word-break: break-all;
-        }
-
-        .pub-doi a {
-            color: #88aaff;
-            text-decoration: none;
-        }
-
-        .pub-doi a:hover {
-            color: #0ff;
-            text-decoration: underline;
-        }
-
-        /* Two Column Layout */
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid rgba(0, 255, 255, 0.2);
-            margin-top: 30px;
-            color: #6688aa;
-        }
-
-        /* Download Button */
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #0ff, #0055aa);
-            color: #0a0e1a;
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 700;
-            font-family: 'Orbitron', monospace;
-            margin-top: 20px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .download-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .container {
-                padding: 20px;
-            }
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-            .name {
-                font-size: 2rem;
-            }
-            .contact-info {
-                justify-content: center;
-            }
-            .two-col {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 550px) {
-            .section-title {
-                font-size: 1.3rem;
-            }
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0e1a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0ff;
-            border-radius: 4px;
-        }
-    </style>
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr;gap:28px}
+  aside.profile{position:static}
+  .profile .card{display:grid;grid-template-columns:auto 1fr;gap:4px 22px;text-align:left;align-items:center}
+  .avatar{width:120px;height:120px;margin:0;grid-row:span 3}
+  .contact,.btns{grid-column:1/-1}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .menu-btn{display:grid}
+  .nav ul{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--line);padding:8px 16px;box-shadow:var(--shadow)}
+  .nav ul.open{display:flex}
+  .nav .wrap{position:relative}
+  .nav .spacer{margin-left:auto}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .grid2{grid-template-columns:1fr}
+  .profile .card{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .avatar{grid-row:auto;width:140px;height:140px;margin-bottom:8px}
+  .contact{grid-template-columns:1fr;width:100%}
+  .btns{width:100%}
+  .skills .box{grid-template-columns:1fr;gap:6px}
+  .news li{grid-template-columns:1fr;gap:2px}
+  .pub{grid-template-columns:1fr;gap:4px}
+  .search{max-width:none;margin-left:0}
+  .sec-head h2{font-size:1.4rem}
+  .kv{grid-template-columns:1fr}
+  .kv dt{margin-top:6px}
+}
+@media print{
+  header.nav,.toolbar,.btns,.icon-btn,.tag.cite{display:none!important}
+  .layout{grid-template-columns:1fr}
+  aside.profile{position:static}
+  .card{box-shadow:none}
+  body{background:#fff}
+}
+</style>
 </head>
 <body>
-<div class="circuit-bg"></div>
-<div class="glow-line"></div>
 
-<div class="container">
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-left">
-            <h1 class="name">Md. Mahmudul Hasan</h1>
-            <div class="title">
-                <i class="fas fa-microchip"></i> Assistant Professor, Department of EEE, RUET
-            </div>
-            <div class="badge"><i class="fas fa-graduation-cap"></i> Student Member, IEEE</div>
-            <div class="badge"><i class="fas fa-trophy"></i> M.Sc. in Electrical & Electronic Engineering, RUET</div>
-            <div class="badge"><i class="fas fa-university"></i> Upcoming PhD Student, Systems Engineering, Boston University</div>
-            
-            <div class="bio">
-                <i class="fas fa-quote-left" style="color: #0ff; margin-right: 8px;"></i>
-                Md. Mahmudul Hasan (Student Member, IEEE) received the B.Sc. and M.Sc. degrees in Electrical & Electronic Engineering from Rajshahi University of Engineering & Technology (RUET), Rajshahi, Bangladesh, in 2019 and 2024, respectively. He is currently an Assistant Professor with the Department of Electrical and Electronic Engineering, RUET, where he previously served as a Lecturer. He also held a Lecturer position with the Department of Electrical and Electronic Engineering, Prime University, Bangladesh. His current research interests include multi-objective metaheuristic optimization for controller tuning and energy management in renewable-integrated power systems, disturbance observer-based control system design for renewable energy applications, and virtual inertia emulation and frequency stabilization in converter-dominated microgrids. He also serves as a reviewer for several international journals and conferences.
-            </div>
-            
-            <div class="contact-info">
-                <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:mahmud@eee.ruet.ac.bd">mahmud@eee.ruet.ac.bd</a></div>
-                <div class="contact-item"><i class="fas fa-phone"></i> <span>+8801837540698</span></div>
-                <div class="contact-item"><i class="fab fa-google"></i> <a href="https://scholar.google.com/citations?hl=en&authuser=2&user=PUPQdH4AAAAJ" target="_blank">Google Scholar</a></div>
-                <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/mahmud-eee-ruet/" target="_blank">LinkedIn</a></div>
-                <div class="contact-item"><i class="fas fa-globe"></i> <a href="https://eee.ruet.ac.bd/mahmud/" target="_blank">RUET Profile</a></div>
-            </div>
-            
-            <a href="#" class="download-btn" id="downloadCVBtn">
-                <i class="fas fa-download"></i> Download CV (PDF)
-            </a>
-        </div>
-        <div class="hero-right">
-            <img class="profile-img" src="MMH.png" alt="Md. Mahmudul Hasan" onerror="this.src='https://via.placeholder.com/220x220?text=MMH+Photo'; this.style.background='#1a2a3a';">
-        </div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Md. Mahmudul Hasan</a>
+    <span class="spacer"></span>
+    <ul id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#supervision">Supervision</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle theme">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="wrap layout" id="top">
+
+  <!-- ============ PROFILE SIDEBAR ============ -->
+  <aside class="profile">
+    <div class="card">
+      <img class="avatar" src="data:image/jpeg;base64,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" alt="Portrait of Md. Mahmudul Hasan" width="168" height="168">
+      <h1>Md. Mahmudul Hasan</h1>
+      <p class="role">PhD Student (First Year)<br>Division of Systems Engineering</p>
+      <p class="affil">Boston University</p>
+      <p class="role" style="margin-top:10px">Assistant Professor (On Leave)<br>Dept. of Electrical &amp; Electronic Engineering</p>
+      <p class="affil">Rajshahi University of Engineering &amp; Technology (RUET)</p>
+      <ul class="contact">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://share.google/6fGh1uKAbP4NV47Xx" target="_blank" rel="noopener">Boston, MA 02121, USA</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:mmhasan@bu.edu">mmhasan@bu.edu</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:mahmud@eee.ruet.ac.bd">mahmud@eee.ruet.ac.bd</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+16175169248">+1 (617) 516-9248</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><a href="https://eee.ruet.ac.bd/mahmud/" target="_blank" rel="noopener">eee.ruet.ac.bd/mahmud</a></li>
+        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.8 3.9C5.9 10.9 8.7 9 12 9s6.1 1.9 7.2 4.4L24 9.5z"/></svg><a href="https://scholar.google.com/citations?hl=en&amp;authuser=2&amp;user=PUPQdH4AAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.1 2.1 2.1 0 0 1 0 4.1zM7.1 20.5H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg><a href="https://linkedin.com/in/mahmud-eee-ruet" target="_blank" rel="noopener">mahmud-eee-ruet</a></li>
+      </ul>
+      <div class="btns">
+        <a class="btn primary" href="CV_MdMahmudulHasan.pdf" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>CV (PDF)</a>
+        <a class="btn" href="mailto:mmhasan@bu.edu">Email</a>
+      </div>
     </div>
+  </aside>
 
-    <!-- Research Interests -->
-    <div class="section">
-        <div class="section-title">
-            <i class="fas fa-bolt"></i> Research Interests
-        </div>
-        <div class="skills-grid">
-            <span class="skill-tag">⚡ Multi‑objective Metaheuristic Optimization</span>
-            <span class="skill-tag">🔧 Disturbance Observer‑based Control</span>
-            <span class="skill-tag">🌿 Renewable Energy Integration</span>
-            <span class="skill-tag">📡 Virtual Inertia Emulation</span>
-            <span class="skill-tag">🔌 Microgrid Frequency Stabilization</span>
-            <span class="skill-tag">🧠 PID Neural Networks</span>
-            <span class="skill-tag">⚙️ Sliding Mode Control</span>
-            <span class="skill-tag">🎛️ H∞ & Adaptive Control</span>
-        </div>
-    </div>
+  <!-- ============ MAIN ============ -->
+  <main>
 
-    <!-- Education & Positions Two Column -->
-    <div class="two-col">
-        <!-- Education -->
-        <div class="section">
-            <div class="section-title">
-                <i class="fas fa-university"></i> Education
-            </div>
-            <div class="card">
-                <div class="card-title">M.Sc. in Electrical & Electronic Engineering</div>
-                <div class="card-subtitle">Rajshahi University of Engineering & Technology</div>
-                <div class="card-date">CGPA: 3.92/4.0 | 2024</div>
-                <div class="card-list">
-                    <li>Thesis: Development of a Hybrid Metaheuristic Optimization Based Control Platform for Three Phase Microgrid System</li>
-                    <li>Coursework: Modern Control Theory, Multivariable Control Systems, Renewable Energy, Digital Circuit Design</li>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-title">B.Sc. in Electrical & Electronic Engineering</div>
-                <div class="card-subtitle">Rajshahi University of Engineering & Technology</div>
-                <div class="card-date">CGPA: 3.89/4.0 | 1st Class | 2nd among 120 students | 2019</div>
-                <div class="card-list">
-                    <li>Thesis: Artificial Neural Network Based Sensorless Field Oriented Control of Three phase Induction Motor</li>
-                    <li>Major: Power System</li>
-                </div>
-            </div>
-        </div>
+    <section id="about">
+      <div class="sec-head"><h2>About</h2></div>
+      <p class="lead">I am a first-year <strong>PhD student in Systems Engineering at Boston University</strong> and an <strong>Assistant Professor (on leave)</strong> in the Department of Electrical &amp; Electronic Engineering at <strong>Rajshahi University of Engineering &amp; Technology (RUET)</strong>, Bangladesh. My research sits at the intersection of <strong>control theory, optimization, and renewable energy</strong> — developing robust, intelligent controllers that keep converter-dominated microgrids and hybrid renewable power systems stable.</p>
+      <p>I received my M.Sc. (CGPA 3.92/4.00) and B.Sc. (CGPA 3.89/4.00, 2nd in a class of 120) in EEE from RUET. My work appears in venues including <em>International Journal of Electrical Power &amp; Energy Systems</em>, <em>Applied Soft Computing</em>, and <em>IET Renewable Power Generation</em>, and I serve as a reviewer for Elsevier and Hindawi journals.</p>
 
-        <!-- Academic Positions -->
-        <div class="section">
-            <div class="section-title">
-                <i class="fas fa-chalkboard-user"></i> Academic Positions
-            </div>
-            <div class="card">
-                <div class="card-title">Assistant Professor</div>
-                <div class="card-subtitle">Department of EEE, RUET</div>
-                <div class="card-date">January 2024 – Present</div>
-                <div class="card-list">
-                    <li>Courses: Measurement & Instrumentation, Computational Methods, Renewable Energy, Power System Operation & Control</li>
-                    <li>Undergraduate Thesis Supervised: 5 | Member Secretary, OBE Curriculum Committee</li>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-title">Lecturer</div>
-                <div class="card-subtitle">Department of EEE, RUET</div>
-                <div class="card-date">February 2021 – December 2023</div>
-                <div class="card-list">
-                    <li>Courses: Power Plant Engineering, Power System II, Measurement & Instrumentation</li>
-                    <li>Thesis Supervised: 3 | Member, Curriculum Modification Committee</li>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-title">Lecturer</div>
-                <div class="card-subtitle">Department of EEE, Prime University, Dhaka</div>
-                <div class="card-date">October 2019 – January 2021</div>
-                <div class="card-list">
-                    <li>Courses: Electronics I, EM Fields, Digital Electronics, Electrical Machine, Renewable Energy</li>
-                </div>
-            </div>
-        </div>
-    </div>
+      <div class="stats">
+        <div class="card stat"><b>7</b><span>Journal articles</span></div>
+        <div class="card stat"><b>7</b><span>Conference papers</span></div>
+        <div class="card stat"><b>8</b><span>Theses supervised</span></div>
+        <div class="card stat"><b>5+</b><span>Years teaching</span></div>
+      </div>
 
-    <!-- Technical Skills -->
-    <div class="section">
-        <div class="section-title">
-            <i class="fas fa-code"></i> Technical Skills
-        </div>
-        <div class="skills-grid">
-            <span class="skill-tag">MATLAB/Simulink</span>
-            <span class="skill-tag">Python (PyTorch, NumPy, Pandas)</span>
-            <span class="skill-tag">C Programming</span>
-            <span class="skill-tag">Proteus / PSpice</span>
-            <span class="skill-tag">Arduino & Sensor Integration</span>
-            <span class="skill-tag">PCB Design</span>
-            <span class="skill-tag">LaTeX</span>
-            <span class="skill-tag">Deep Learning (ANN, RNN, LSTM, GRU)</span>
-            <span class="skill-tag">Multi‑objective Optimization</span>
-            <span class="skill-tag">Observer‑based Control</span>
-        </div>
-    </div>
+      <h3 class="sub">Research Interests</h3>
+      <div class="interests">
+        <div class="card interest"><span class="num">1</span><div><strong>Multi-objective metaheuristic optimization</strong> for controller tuning and energy management in renewable-integrated power systems.</div></div>
+        <div class="card interest"><span class="num">2</span><div><strong>Disturbance observer-based control</strong> system design for renewable energy applications.</div></div>
+        <div class="card interest"><span class="num">3</span><div><strong>Virtual inertia emulation</strong> and frequency stabilization techniques for converter-dominated microgrids.</div></div>
+      </div>
 
-    <!-- Selected Publications -->
-    <div class="section">
-        <div class="section-title">
-            <i class="fas fa-book"></i> Selected Journal Publications
-        </div>
-        <div class="publication-list">
-            <div class="pub-item">
-                <div class="pub-title">Virtual inertia emulation in islanded microgrids using a time-series disturbance observer for frequency stabilization</div>
-                <div class="pub-authors">M. M. Hasan, M. S. Rana, T. S. Joyeeta, F. Tabassum</div>
-                <div class="pub-journal">International Journal of Electrical Power & Energy Systems, Vol. 176, p. 111673, 2026</div>
-                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1016/j.ijepes.2026.111673" target="_blank">10.1016/j.ijepes.2026.111673</a></div>
-            </div>
-            <div class="pub-item">
-                <div class="pub-title">Optimizing the initial weights of a PID neural network controller for voltage stabilization of microgrids using a PEO-GA algorithm</div>
-                <div class="pub-authors">M. M. Hasan, M. S. Rana, F. Tabassum, H. R. Pota, M. H. K. Roni</div>
-                <div class="pub-journal">Applied Soft Computing, Vol. 147, p. 110771, 2023</div>
-                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1016/j.asoc.2023.110771" target="_blank">10.1016/j.asoc.2023.110771</a></div>
-            </div>
-            <div class="pub-item">
-                <div class="pub-title">Disturbance observer-aided SSA-TID control for frequency stabilization in hybrid renewable power systems</div>
-                <div class="pub-authors">R. Hasan, M. M. Hasan, M. S. Rana, F. Tabassum, M. N. B. Reza</div>
-                <div class="pub-journal">IET Renewable Power Generation, Vol. 19(1), 2025</div>
-                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1049/rpg2.70137" target="_blank">10.1049/rpg2.70137</a></div>
-            </div>
-            <div class="pub-item">
-                <div class="pub-title">Optimal defense against security threat on stability of grid-integrated synchronous generator during FDI attack</div>
-                <div class="pub-authors">F. Tabassum, M. Rana, T. S. Joyeeta, M. M. Hasan</div>
-                <div class="pub-journal">e-Prime - Advances in Electrical Engineering, Electronics and Energy, Vol. 13, p. 101097, 2025</div>
-                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1016/j.pri.2025.101097" target="_blank">10.1016/j.pri.2025.101097</a></div>
-            </div>
-            <div class="pub-item">
-                <div class="pub-title">An asymmetric fuzzy-based self-tuned PSO-optimized MPPT controller for grid-connected solar photovoltaic system</div>
-                <div class="pub-authors">M. N.-U.-Rahman, M. M. Hasan, A. M. Raka, et al.</div>
-                <div class="pub-journal">Energy Conversion and Management: X, Vol. 26, p. 100902, 2025</div>
-                <div class="pub-doi">🔗 DOI: <a href="https://doi.org/10.1016/j.ecmx.2025.100902" target="_blank">10.1016/j.ecmx.2025.100902</a></div>
-            </div>
-        </div>
-    </div>
+      <h3 class="sub">Recent Highlights</h3>
+      <ul class="clean card news">
+        <li><time>Aug 2026</time><span>Started Ph.D. in Systems Engineering at <strong>Boston University</strong>; on leave from RUET.</span></li>
+        <li><time>2026</time><span>Paper on <a href="https://doi.org/10.1016/j.ijepes.2026.111673" target="_blank" rel="noopener">virtual inertia emulation using a time-series disturbance observer</a> published in <em>Int. J. Electrical Power &amp; Energy Systems</em>.</span></li>
+        <li><time>2025</time><span>Three journal articles published in <em>IET Renewable Power Generation</em>, <em>e-Prime</em>, and <em>Energy Conversion and Management: X</em>.</span></li>
+        <li><time>Dec 2024</time><span>Completed M.Sc. in EEE, RUET (CGPA 3.92/4.00).</span></li>
+        <li><time>Sep 2024</time><span>Served as Publication Secretary, IEEE PEEIACON 2024, RUET.</span></li>
+        <li><time>2024</time><span>Invited talk: <em>“Energy Management and Virtual Inertia Emulation in Microgrids”</em>, IEEE PES Day, BUBT.</span></li>
+        <li><time>Jan 2024</time><span>Promoted to Assistant Professor, Department of EEE, RUET.</span></li>
+      </ul>
+    </section>
 
-    <!-- Funded Project & Awards Two Column -->
-    <div class="two-col">
-        <div class="section">
-            <div class="section-title">
-                <i class="fas fa-flask"></i> Funded Project
-            </div>
-            <div class="card">
-                <div class="card-title">Adaptive Control of Islanded Microgrid System using Population Extremal Optimization Based PID Neural Network</div>
-                <div class="card-subtitle">Role: Project Director | UGC Funded</div>
-                <div class="card-date">Grant: DRE/7/RUET/528(35)/PRO/2021-22/14 | 2021-2022 | Amount: BDT 2,50,000</div>
-            </div>
-            <div class="section-title" style="margin-top: 25px;">
-                <i class="fas fa-medal"></i> Awards & Scholarships
-            </div>
-            <div class="card">
-                <div class="card-list">
-                    <li>🏆 EEE Association Award for Academic Excellence, 2016</li>
-                    <li>📚 Education Board Scholarship for Excellence in HSC Examination, 2014</li>
-                    <li>📖 Education Board Scholarship for Excellence in SSC Examination, 2012</li>
-                </div>
-            </div>
-        </div>
+    <!-- ============ PUBLICATIONS ============ -->
+    <section id="publications">
+      <div class="sec-head"><h2>Publications</h2><span class="count" id="pubCount"></span></div>
+      <div class="toolbar">
+        <button class="filter on" data-f="all">All</button>
+        <button class="filter" data-f="journal">Journal</button>
+        <button class="filter" data-f="conference">Conference</button>
+        <button class="filter" data-f="review">Under Review</button>
+        <input class="search" id="pubSearch" type="search" placeholder="Search title, author, venue…" aria-label="Search publications">
+      </div>
+      <div id="pubList"></div>
+      <p class="empty" id="pubEmpty">No publications match your search.</p>
+      <p style="font-size:.85rem;color:var(--muted);margin-top:14px"><b style="color:var(--text);text-decoration:underline;text-decoration-color:var(--accent-2);text-underline-offset:3px">Underlined</b> = this author. Click any title to open the paper via its DOI.</p>
+    </section>
 
-        <div class="section">
-            <div class="section-title">
-                <i class="fas fa-users"></i> Professional Services
-            </div>
-            <div class="card">
-                <div class="card-list">
-                    <li>Publication Secretary, IEEE PEEIACON 2024, RUET</li>
-                    <li>Publication Committee Member, IEEE ICEEE 2021, RUET</li>
-                    <li>Invited Talk: "Energy Management and Virtual Inertia Emulation in Microgrids", IEEE PES Day, BUBT, 2024</li>
-                    <li>Reviewer: Electric Power Systems Research, ISA Transactions, International Transactions on Electrical Energy Systems</li>
-                </div>
-            </div>
-            <div class="section-title" style="margin-top: 25px;">
-                <i class="fas fa-language"></i> IELTS Score
-            </div>
-            <div class="card">
-                <div class="card-title">IELTS Academic: Overall Band 8.0</div>
-                <div class="card-subtitle">Listening: 9.0 | Reading: 9.0 | Writing: 6.5 | Speaking: 7.0</div>
-            </div>
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience">
+      <div class="sec-head"><h2>Academic Positions</h2></div>
+      <div class="timeline">
+        <div class="card t-item">
+          <div class="t-top"><h3>Assistant Professor <span class="pill" style="vertical-align:middle">On Leave</span></h3><span class="t-date">Jan 2024 – Present</span></div>
+          <div class="t-org">Department of EEE, Rajshahi University of Engineering &amp; Technology, Rajshahi-6204</div>
+          <ul>
+            <li><b>Courses taught:</b> Measurement and Instrumentation; Computational Methods in Engineering; Renewable Energy; Power System Operation and Control</li>
+            <li><b>Undergraduate theses supervised:</b> 5</li>
+            <li><b>Additional role:</b> Member Secretary, OBE-Based Undergraduate Curriculum Preparation Committee</li>
+          </ul>
         </div>
-    </div>
+        <div class="card t-item">
+          <div class="t-top"><h3>Lecturer</h3><span class="t-date">Feb 2021 – Dec 2023</span></div>
+          <div class="t-org">Department of EEE, Rajshahi University of Engineering &amp; Technology, Rajshahi-6204</div>
+          <ul>
+            <li><b>Courses taught:</b> Measurement and Instrumentation; Power Plant Engineering and Economy; Power System II; Power System Operation and Control</li>
+            <li><b>Undergraduate theses supervised:</b> 3</li>
+            <li><b>Additional role:</b> Member, Undergraduate Curriculum Modification Committee</li>
+          </ul>
+        </div>
+        <div class="card t-item">
+          <div class="t-top"><h3>Lecturer</h3><span class="t-date">Oct 2019 – Jan 2021</span></div>
+          <div class="t-org">Department of EEE, Prime University, Dhaka-1216</div>
+          <ul>
+            <li><b>Courses taught:</b> Electronics I; Electromagnetic Fields; Digital Electronics and Pulse Techniques; Electrical Machine; Renewable Energy; Power System Operation and Control</li>
+          </ul>
+        </div>
+      </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <i class="fas fa-microchip"></i> Department of Electrical & Electronic Engineering (EEE) &nbsp;|&nbsp;
-        <i class="fas fa-university"></i> Rajshahi University of Engineering & Technology (RUET) &nbsp;|&nbsp;
-        <i class="fas fa-bolt"></i> Heaven's Light is Our Guide
-        <br><br>
-        <small>© 2024 Md. Mahmudul Hasan | Neon Portfolio | Built with ⚡ for EEE Excellence</small>
-    </div>
+      <h3 class="sub">Research Grant</h3>
+      <div class="card box">
+        <span class="pill">UGC Funded</span><span class="pill">Project Director</span>
+        <h3 style="margin-top:10px">Adaptive Control of Islanded Microgrid System using Population Extremal Optimization Based PID Neural Network</h3>
+        <dl class="kv" style="margin-top:10px">
+          <dt>Funding body</dt><dd>University Grants Commission (UGC), Bangladesh</dd>
+          <dt>Grant No.</dt><dd>DRE/7/RUET/528(35)/PRO/2021-22/14</dd>
+          <dt>Duration</dt><dd>2021 – 2022</dd>
+          <dt>Amount</dt><dd>BDT 2,50,000</dd>
+        </dl>
+      </div>
+
+      <h3 class="sub">Industrial Training</h3>
+      <div class="card box">
+        <div class="t-top"><h3>Ghorashal Power Station</h3><span class="t-date">08 – 23 May 2018</span></div>
+        <div class="t-org">Bangladesh Power Development Board, Ghorashal, Bangladesh</div>
+        <p>Training on power generation (steam turbine, gas turbine, combined cycle, and gas engine power plants), substations, switchgear, and power plant simulator.</p>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section id="education">
+      <div class="sec-head"><h2>Education</h2></div>
+      <div class="timeline">
+        <div class="card t-item">
+          <div class="t-top"><h3>Ph.D. in Systems Engineering</h3><span class="t-date">Aug 2026 – Present</span></div>
+          <div class="t-org">Boston University, Boston, MA, USA</div>
+          <span class="pill">In Progress</span>
+          <ul>
+            <li><b>Coursework (continuing):</b> Dynamic System Theory, Optimization Theory II, Probability with Statistical Applications</li>
+          </ul>
+        </div>
+        <div class="card t-item">
+          <div class="t-top"><h3>M.Sc. in Electrical &amp; Electronic Engineering</h3><span class="t-date">Apr 2020 – Dec 2024</span></div>
+          <div class="t-org">Rajshahi University of Engineering &amp; Technology (RUET)</div>
+          <span class="pill">CGPA 3.92 / 4.00</span>
+          <ul>
+            <li><b>Thesis:</b> <em>Development of a Hybrid Metaheuristic Optimization Based Control Platform for Three Phase Microgrid Systems</em></li>
+            <li><b>Supervisor:</b> Prof. Dr. Md Sohel Rana</li>
+            <li><b>Coursework:</b> Engineering Analysis, Modern Control Theory, Multivariable Control Systems, Renewable Energy, Energy Conversion, Digital Circuit Design</li>
+          </ul>
+        </div>
+        <div class="card t-item">
+          <div class="t-top"><h3>B.Sc. in Electrical &amp; Electronic Engineering</h3><span class="t-date">Jan 2015 – Aug 2019</span></div>
+          <div class="t-org">Rajshahi University of Engineering &amp; Technology (RUET)</div>
+          <span class="pill">CGPA 3.89 / 4.00</span><span class="pill">1st Class, 2nd of 120</span>
+          <ul>
+            <li><b>Thesis:</b> <em>Artificial Neural Network Based Sensorless Field Oriented Control of Three Phase Induction Motor</em></li>
+            <li><b>Supervisor:</b> Prof. Dr. S. M. Abdur Razzak</li>
+            <li><b>Major:</b> Power System</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SUPERVISION ============ -->
+    <section id="supervision">
+      <div class="sec-head"><h2>Supervised Undergraduate Theses</h2><span class="count">8 theses · Dept. of EEE, RUET</span></div>
+      <ol class="clean card thesis">
+        <li><span class="yr">2025</span><span>A 2-DOF Optimal Active Disturbance Rejection Framework for Load Frequency Control<span class="st">M H M Tawhidul Islam Fahim &amp; Fayez Naqib Efat</span></span></li>
+        <li><span class="yr">2025</span><span>Multi-Objective Optimization Based Energy Management System for Grid Connected Microgrid<span class="st">Susmita Paul</span></span></li>
+        <li><span class="yr">2024</span><span>Optimal Fractional Order Control of Virtual Inertia Emulator for a Microgrid with High Renewable Energy Penetration<span class="st">Md. Sohanur Rahman</span></span></li>
+        <li><span class="yr">2024</span><span>Salp Swarm Algorithm Tuned Fractional Order Controller for Load Frequency Control of Hybrid Renewable Power System<span class="st">Rakibul Hasan</span></span></li>
+        <li><span class="yr">2024</span><span>Optimal Active Disturbance Rejection Control of Power System Stabilizer<span class="st">Maliha Anam</span></span></li>
+        <li><span class="yr">2023</span><span>Robust Optimal Dynamic Voltage Restoration in a Compensated Resonant Grounded Distribution System<span class="st">Ramisa Fariha Mridha &amp; Naimur Rahman</span></span></li>
+        <li><span class="yr">2023</span><span>Performance Augmentation of an Arc Suppression Device Using Active Disturbance Rejection Control<span class="st">Ragib Rowshon</span></span></li>
+        <li><span class="yr">2023</span><span>Voltage Control of PV-fed Grid Forming Inverter Based Three-Phase Microgrid Using Optimal Sliding Mode Controller<span class="st">Munsi Nahid Md Rahi</span></span></li>
+      </ol>
+    </section>
+
+    <!-- ============ SERVICE ============ -->
+    <section id="service">
+      <div class="sec-head"><h2>Service &amp; Talks</h2></div>
+      <div class="grid2">
+        <div class="card box">
+          <h3>Journal Reviewer</h3>
+          <ul class="clean svc">
+            <li><em>Electric Power Systems Research</em>, Elsevier</li>
+            <li><em>ISA Transactions</em>, Elsevier</li>
+            <li><em>International Transactions on Electrical Energy Systems</em>, Hindawi</li>
+            <li>Various IEEE international conferences</li>
+          </ul>
+        </div>
+        <div class="card box">
+          <h3>Invited Talk</h3>
+          <ul class="clean svc">
+            <li><b>“Energy Management and Virtual Inertia Emulation in Microgrids”</b><br><span style="color:var(--muted)">IEEE PES Day, IEEE Student Branch, Bangladesh University of Business and Technology (BUBT), 2024</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card box" style="margin-top:14px">
+        <h3>Professional &amp; Conference Service</h3>
+        <ul class="clean svc">
+          <li><b>Publication Secretary</b>, IEEE International Conference on Power, Electrical, Electronics and Industrial Applications (PEEIACON), 12–13 Sep 2024, RUET</li>
+          <li><b>Publication Committee Member</b>, IEEE 3rd International Conference on Electrical &amp; Electronic Engineering (ICEEE), 22–24 Dec 2021, RUET</li>
+          <li><b>Member Secretary</b>, OBE-Based Undergraduate Curriculum Preparation Committee, Dept. of EEE, RUET</li>
+          <li><b>Member</b>, Undergraduate Curriculum Modification Committee, Dept. of EEE, RUET</li>
+          <li><b>Member</b>, Electrical Testing Committee, Dept. of EEE, RUET</li>
+          <li><b>Promotional &amp; Publication Sub-committee Member</b>, 1st Reunion of EEE Alumni Association, RUET</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills">
+      <div class="sec-head"><h2>Technical Skills</h2></div>
+      <div class="card skills">
+        <div class="box"><span class="lbl">Optimization</span><div class="chips"><span>Multi-objective metaheuristics</span><span>Convex optimization</span></div></div>
+        <div class="box"><span class="lbl">Control System Design</span><div class="chips"><span>State feedback</span><span>Observer-based control</span><span>H∞ control</span><span>Adaptive &amp; neuro-adaptive control</span><span>Disturbance observers (linear &amp; nonlinear)</span><span>Sliding mode control</span></div></div>
+        <div class="box"><span class="lbl">Deep Learning</span><div class="chips"><span>ANN</span><span>RNN</span><span>LSTM</span><span>GRU</span></div></div>
+        <div class="box"><span class="lbl">Programming</span><div class="chips"><span>MATLAB</span><span>Python</span><span>PyTorch</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>C</span></div></div>
+        <div class="box"><span class="lbl">Simulation Tools</span><div class="chips"><span>MATLAB/Simulink</span><span>Proteus</span><span>PSpice</span></div></div>
+        <div class="box"><span class="lbl">Hardware</span><div class="chips"><span>Arduino</span><span>Sensor integration</span><span>PCB design</span></div></div>
+        <div class="box"><span class="lbl">Productivity</span><div class="chips"><span>LaTeX</span><span>Microsoft Office</span></div></div>
+        <div class="box"><span class="lbl">Industry Testing (IEC)</span><div class="chips"><span>Power transformers (≤ 800 kVA)</span><span>Solar PV modules</span><span>Insulators</span><span>Lightning arresters</span><span>Transmission line cables</span><span>LED streetlights</span></div></div>
+      </div>
+    </section>
+
+    <!-- ============ AWARDS ============ -->
+    <section id="awards">
+      <div class="sec-head"><h2>Awards &amp; Test Scores</h2></div>
+      <div class="grid2">
+        <div class="card box">
+          <h3>Awards &amp; Scholarships</h3>
+          <ul class="clean svc">
+            <li><b>EEE Association Award</b> for Academic Excellence, 2016</li>
+            <li><b>Education Board Scholarship</b> for Excellence in HSC Examination, 2014</li>
+            <li><b>Education Board Scholarship</b> for Excellence in SSC Examination, 2012</li>
+          </ul>
+        </div>
+        <div class="card box">
+          <h3>IELTS Academic — Overall Band 8.0</h3>
+          <div class="ielts">
+            <div><b>9.0</b><span>Listening</span></div>
+            <div><b>9.0</b><span>Reading</span></div>
+            <div><b>6.5</b><span>Writing</span></div>
+            <div><b>7.0</b><span>Speaking</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT / REFERENCES ============ -->
+    <section id="contact">
+      <div class="sec-head"><h2>Contact &amp; References</h2></div>
+      <div class="grid2">
+        <div class="card box">
+          <h3>Get in touch</h3>
+          <p>I welcome inquiries about research collaboration, student supervision, and academic opportunities.</p>
+          <dl class="kv" style="margin-top:12px">
+            <dt>Email (BU)</dt><dd><a href="mailto:mmhasan@bu.edu">mmhasan@bu.edu</a></dd>
+            <dt>Email (RUET)</dt><dd><a href="mailto:mahmud@eee.ruet.ac.bd">mahmud@eee.ruet.ac.bd</a></dd>
+            <dt>Phone</dt><dd><a href="tel:+16175169248">+1 (617) 516-9248</a></dd>
+            <dt>Location</dt><dd><a href="https://share.google/6fGh1uKAbP4NV47Xx" target="_blank" rel="noopener">Boston, MA 02121, USA</a></dd>
+            <dt>Home institution</dt><dd>Dept. of EEE, RUET, Rajshahi-6204, Bangladesh</dd>
+          </dl>
+        </div>
+        <div class="card box">
+          <h3>References</h3>
+          <p><b>Prof. Dr. S. M. Abdur Razzak</b><br>Professor, Dept. of EEE &amp; Vice-Chancellor, RUET<br><a href="mailto:sma.razzak@eee.ruet.ac.bd">sma.razzak@eee.ruet.ac.bd</a><br><span style="color:var(--muted)">Undergraduate supervisor</span></p>
+          <p style="margin-top:12px"><b>Prof. Dr. Md Sohel Rana</b><br>Professor, Dept. of EEE, RUET<br><a href="mailto:sohel@eee.ruet.ac.bd">sohel@eee.ruet.ac.bd</a><br><span style="color:var(--muted)">Postgraduate supervisor</span></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
 </div>
 
-<script>
-    // Download CV button - create actual download functionality
-    document.getElementById('downloadCVBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // You can replace this with your actual CV file
-        // For now, it will show an alert with instructions
-        
-        
-        // Uncomment these lines when you have the actual PDF file:
-        const link = document.createElement('a');
-        link.href = 'CV_MdMahmudulHasan.pdf';
-        link.download = 'CV_MdMahmudulHasan.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-    });
-</script>
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Md. Mahmudul Hasan · Boston University &amp; RUET</span>
+    <span>Last updated: October 2026</span>
+  </div>
+</footer>
+<div class="toast" id="toast">Citation copied</div>
 
-<!-- 
-    IMPORTANT INSTRUCTIONS:
-    
-    1. PROFILE PHOTO:
-       - Place your photo in the same folder as this HTML file
-       - Name it exactly "MMH.png"
-       - Supported formats: PNG, JPG, JPEG
-       - Recommended size: 500x500 pixels
-    
-    2. CV DOWNLOAD:
-       - Save your CV as "CV_MdMahmudulHasan.pdf" in the same folder
-       - Uncomment lines 463-466 in the JavaScript section above
-       - The download button will then work automatically
-    
-    3. ALL LINKS ARE NOW WORKING:
-       ✓ RUET Profile: https://eee.ruet.ac.bd/mahmud/
-       ✓ Google Scholar: https://scholar.google.com/citations?hl=en&authuser=2&user=PUPQdH4AAAAJ
-       ✓ LinkedIn: https://www.linkedin.com/in/mahmud-eee-ruet/
-       ✓ All DOI links open in new tabs
--->
+<script>
+const ME = /M\. M\. Hasan/;
+const pubs = [
+  // ---------- Journal articles ----------
+  {t:"journal", y:2026, title:"Virtual inertia emulation in islanded microgrids using a time-series disturbance observer for frequency stabilization",
+   a:"M. M. Hasan, M. S. Rana, T. S. Joyeeta, and F. Tabassum",
+   v:"International Journal of Electrical Power & Energy Systems", d:"vol. 176, p. 111673, 2026", pub:"Elsevier", doi:"10.1016/j.ijepes.2026.111673"},
+  {t:"journal", y:2025, title:"Disturbance observer-aided SSA-TID control for frequency stabilization in hybrid renewable power systems",
+   a:"R. Hasan, M. M. Hasan, M. S. Rana, F. Tabassum, and M. N. B. Reza",
+   v:"IET Renewable Power Generation", d:"vol. 19, no. 1, 2025", pub:"IET / Wiley", doi:"10.1049/rpg2.70137"},
+  {t:"journal", y:2025, title:"Optimal defense against security threat on stability of grid-integrated synchronous generator during FDI attack",
+   a:"F. Tabassum, M. Rana, T. S. Joyeeta, and M. M. Hasan",
+   v:"e-Prime - Advances in Electrical Engineering, Electronics and Energy", d:"vol. 13, p. 101097, 2025", pub:"Elsevier", doi:"10.1016/j.prime.2025.101097"},
+  {t:"journal", y:2025, title:"An asymmetric fuzzy-based self-tuned PSO-optimized MPPT controller for grid-connected solar photovoltaic system",
+   a:"M. N.-U.-Rahman, M. M. Hasan, A. M. Raka, M. F. Rahman, M. M. Rana, A. A. Mansur, and M. A. Razzak",
+   v:"Energy Conversion and Management: X", d:"vol. 26, p. 100902, 2025", pub:"Elsevier", doi:"10.1016/j.ecmx.2025.100902"},
+  {t:"journal", y:2023, title:"Optimizing the initial weights of a PID neural network controller for voltage stabilization of microgrids using a PEO-GA algorithm",
+   a:"M. M. Hasan, M. S. Rana, F. Tabassum, H. R. Pota, and M. H. K. Roni",
+   v:"Applied Soft Computing", d:"vol. 147, p. 110771, 2023", pub:"Elsevier", doi:"10.1016/j.asoc.2023.110771"},
+  {t:"journal", y:2022, title:"Recent trends in bio-inspired meta-heuristic optimization techniques in control applications for electrical systems: A review",
+   a:"M. H. K. Roni, M. S. Rana, H. R. Pota, M. M. Hasan, and M. S. Hussain",
+   v:"International Journal of Dynamics and Control", d:"vol. 10, no. 3, pp. 999–1011, Jan. 2022", pub:"Springer", doi:"10.1007/s40435-021-00892-3"},
+  {t:"journal", y:2021, title:"Performance improvement of DFIG-based wind farms using NARMA-L2 controlled bridge-type flux coupling non-superconducting fault current limiter",
+   a:"M. R. Islam, J. Hasan, M. M. Hasan, M. N. Huda, M. A. H. Sadi, and A. AbuHussein",
+   v:"IET Generation, Transmission and Distribution", d:"vol. 14, no. 26, pp. 6580–6593, 2021", pub:"IET", doi:"10.1049/iet-gtd.2019.1917"},
+  // ---------- Under review ----------
+  {t:"review", y:2025, title:"Multivariable power control of grid-forming inverters using a PID neural network",
+   a:"M. M. Hasan, M. M. Hasan, M. S. Rana, F. Tabassum, and T. S. Joyeeta",
+   v:"IET Renewable Power Generation", d:"manuscript under review, 2025", pub:"", doi:""},
+  // ---------- Conference papers ----------
+  {t:"conference", y:2025, title:"Voltage control of grid-forming inverter in islanded microgrids using PSO-optimized sliding mode controller",
+   a:"M. N. M. Rahi, M. M. Hasan, M. Y.-Y. U. Haque, A. I. Abeg, and T. S. Turna",
+   v:"Proc. Int. Conf. Electrical, Computer & Communication Engineering (ECCE)", d:"2025, pp. 1–6", pub:"IEEE", doi:"10.1109/ECCE64574.2025.11013018"},
+  {t:"conference", y:2024, title:"Salp swarm algorithm based integral LQG control of two area nonlinear power system with renewable energy penetration",
+   a:"M. A. Hossain, M. M. Hasan, F. Tabassum, and M. S. Rana",
+   v:"Proc. Int. Conf. Computer and Information Technology (ICCIT)", d:"2024, pp. 657–662", pub:"IEEE", doi:"10.1109/ICCIT64611.2024.11022531"},
+  {t:"conference", y:2024, title:"Optimal fractional order control of virtual inertia emulator for a microgrid with high renewable energy penetration",
+   a:"M. M. Hasan, M. S. Rahman, M. S. Rana, and F. Tabassum",
+   v:"Proc. Int. Conf. Developments in Renewable Energy Technology (ICDRET)", d:"2024, pp. 1–6", pub:"IEEE", doi:"10.1109/ICDRET60388.2024.10504017"},
+  {t:"conference", y:2022, title:"Performance augmentation of an arc suppression device using particle swarm optimization based proportional resonant controller",
+   a:"M. A. Rafi, M. M. Hasan, M. Y.-Y. U. Haque, Z. Ferdous, M. S. Rana, and M. F. Hossain",
+   v:"Proc. Int. Conf. Electrical and Computer Engineering (ICECE)", d:"2022, pp. 445–448", pub:"IEEE", doi:"10.1109/ICECE57408.2022.10089057"},
+  {t:"conference", y:2021, title:"Population extremal optimization based 2-DOF control strategy for field oriented control of induction motor",
+   a:"M. M. Hasan, M. S. Hussain, M. S. Rana, and M. H. K. Roni",
+   v:"Proc. Int. Conf. Electrical and Electronic Engineering (ICEEE)", d:"2021, pp. 117–120", pub:"IEEE", doi:"10.1109/ICEEE54059.2021.9718799"},
+  {t:"conference", y:2021, title:"Modified population extremal optimization based PID neural network for islanded microgrid system",
+   a:"M. M. Hasan and M. S. Rana",
+   v:"Proc. IEEE Int. Conf. Computing, Power and Communication Technologies (GUCON)", d:"2021, pp. 1–6", pub:"IEEE", doi:"10.1109/GUCON50781.2021.9573922"},
+  {t:"conference", y:2019, title:"Artificial neural network based speed estimator for sensorless field oriented control of three phase induction motor",
+   a:"M. M. Hasan",
+   v:"Proc. Int. Conf. Electrical, Computer & Telecommunication Engineering (ICECTE)", d:"2019, pp. 57–60", pub:"IEEE", doi:"10.1109/ICECTE48615.2019.9303559"}
+];
+
+const groups = [["journal","Journal Articles","J"],["review","Journal Articles Under Review","R"],["conference","Conference Papers","C"]];
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const boldMe = a => esc(a).replace(/M\. M\. Hasan/,"<b>M. M. Hasan</b>");
+let filter = "all", query = "";
+
+function cite(p){ return `${p.a}, “${p.title},” ${p.v}, ${p.d}.` + (p.doi?` doi: ${p.doi}.`:""); }
+
+function render(){
+  const list = document.getElementById("pubList"); let html = "", shown = 0;
+  for (const [key,label,prefix] of groups){
+    if (filter!=="all" && filter!==key) continue;
+    const items = pubs.filter(p=>p.t===key);
+    const vis = items.map((p,i)=>({p,i})).filter(({p})=>!query || (p.title+" "+p.a+" "+p.v+" "+p.y).toLowerCase().includes(query));
+    if (!vis.length) continue;
+    html += `<div class="pub-group"><h3>${label} (${vis.length})</h3>`;
+    for (const {p,i} of vis){
+      shown++;
+      const n = items.length - i;
+      const title = p.doi ? `<a class="title" href="https://doi.org/${p.doi}" target="_blank" rel="noopener">${esc(p.title)}</a>` : `<span class="title">${esc(p.title)}</span>`;
+      const typeTag = key==="conference" ? `<span class="tag type-c">Conference</span>` : key==="journal" ? `<span class="tag type-j">Journal</span>` : `<span class="tag">Under Review</span>`;
+      html += `<article class="card pub"><span class="idx">[${prefix}${n}]</span><div>
+        ${title}
+        <div class="authors">${boldMe(p.a)}</div>
+        <div class="venue">${esc(p.v)}<span style="font-style:normal">, ${esc(p.d)}</span></div>
+        <div class="tags">${typeTag}<span class="tag">${p.y}</span>${p.pub?`<span class="tag">${esc(p.pub)}</span>`:""}
+        ${p.doi?`<a class="tag link" href="https://doi.org/${p.doi}" target="_blank" rel="noopener">DOI: ${p.doi}</a>`:""}
+        <button class="tag cite" data-c="${esc(cite(p)).replace(/"/g,"&quot;")}">Copy citation</button></div>
+      </div></article>`;
+    }
+    html += `</div>`;
+  }
+  list.innerHTML = html;
+  document.getElementById("pubEmpty").style.display = shown ? "none" : "block";
+  document.getElementById("pubCount").textContent = `${pubs.filter(p=>p.t==="journal").length} journal · ${pubs.filter(p=>p.t==="conference").length} conference · ${pubs.filter(p=>p.t==="review").length} under review`;
+}
+render();
+
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".filter").forEach(x=>x.classList.remove("on")); b.classList.add("on"); filter=b.dataset.f; render();
+}));
+document.getElementById("pubSearch").addEventListener("input",e=>{query=e.target.value.trim().toLowerCase(); render();});
+
+const toast = document.getElementById("toast");
+document.getElementById("pubList").addEventListener("click",e=>{
+  const b = e.target.closest(".cite"); if(!b) return;
+  const txt = b.dataset.c;
+  const done = ()=>{toast.classList.add("show"); setTimeout(()=>toast.classList.remove("show"),1600);};
+  if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done).catch(()=>{});
+  else { const t=document.createElement("textarea"); t.value=txt; document.body.appendChild(t); t.select(); try{document.execCommand("copy");done();}catch(_){} t.remove(); }
+});
+
+// Theme toggle
+const root = document.documentElement;
+try { const s = localStorage.getItem("theme"); if (s) root.dataset.theme = s; } catch(_){}
+document.getElementById("themeBtn").addEventListener("click",()=>{
+  const dark = root.dataset.theme ? root.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("theme", root.dataset.theme); } catch(_){}
+});
+
+// Mobile menu
+const nav = document.getElementById("navlinks");
+document.getElementById("menuBtn").addEventListener("click",()=>nav.classList.toggle("open"));
+nav.addEventListener("click",e=>{ if(e.target.tagName==="A") nav.classList.remove("open"); });
+
+// Active section highlight
+const links = [...nav.querySelectorAll("a")];
+const obs = new IntersectionObserver(es=>{
+  es.forEach(en=>{ if(en.isIntersecting){ links.forEach(l=>l.classList.toggle("active", l.getAttribute("href")==="#"+en.target.id)); } });
+},{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("main section").forEach(s=>obs.observe(s));
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
